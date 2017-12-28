@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  ldap-server:
+    image: osixia/openldap
+    environment:
+      LDAP_ORGANISATION: 'xqcao inc'
+      LDAP_DOMAIN: xqcao.com
+      LDAP_ADMIN_PASSWORD: admin
+    ports:
+      - 389:389
+      - 636:636
+
+  web:
+    image: osixia/phpldapadmin
+    environment:
+      PHPLDAPADMIN_HTTPS: 'false'
+      PHPLDAPADMIN_LDAP_HOSTS: ldap-host
+    links:
+      - ldap-server:ldap-host
+    ports:
+      - 6080:80
+      - 6443:443
