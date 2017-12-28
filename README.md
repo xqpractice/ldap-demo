@@ -2,5 +2,5 @@
 
 ## Login
 
-UserName: cn=admin,dc=xqcao,dc=com
-Password: admin
+* UserName: cn=admin,dc=xqcao,dc=com
+* Password: admin
